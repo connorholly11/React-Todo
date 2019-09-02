@@ -32,6 +32,21 @@ class App extends React.Component {
 
   }
 
+  toggleCompleted = (id) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+      if (id === todo.id){
+        //if the id is equal to the todo.id then toggle
+        return{...todo, completed: !todo.completed}
+      }
+      else{
+        return todo;
+      }
+    })
+  })
+    //this is letting me toggle the completed or not
+  }
+
   render() {
     // console.log(this.state);
     return (
@@ -39,8 +54,10 @@ class App extends React.Component {
         <h1>Todo List:</h1>
         <br></br>
         
-        <TodoList todos={this.state.todos}/>
-        {/* passing the state props to TodoList */}
+        <TodoList todos={this.state.todos}  
+                  toggleCompleted={this.toggleCompleted}
+        />
+         {/* passing the state props to TodoList */}
 
         <TodoForm />
       </div>

@@ -7,7 +7,7 @@ import Todo from './Todo';
 class TodoList extends React.Component{
     constructor(props){
         super(props);
-        console.log(props)
+        console.log('Todo List', props)
     }
 
     render(){
@@ -16,7 +16,7 @@ class TodoList extends React.Component{
         return(
             <div>
                 {this.props.todos.map
-                (todo => <Todo key={todo.id} todo={todo} />
+                (todo => <Todo key={todo.id} todo={todo} togglecompleted={this.props.toggleCompleted} />
                 )}
 {/* mapping over the dumbydata array and putting each task in a div */}
 
