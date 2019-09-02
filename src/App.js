@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import { remove } from 'jest-util/build/preRunMessage';
 
 const dumbydata = [
   {
@@ -58,6 +59,14 @@ class App extends React.Component {
     })
   }
 
+  removeCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo =>{
+        return !todo.completed
+      })
+    })
+  }
+
 
   render() {
     // console.log(this.state);
@@ -71,7 +80,7 @@ class App extends React.Component {
         />
          {/* passing the state props to TodoList */}
 
-        <TodoForm addTodo={this.addTodo}/>
+        <TodoForm addTodo={this.addTodo} removeCompleted={this.removeCompleted}/>
       </div>
     );
   }

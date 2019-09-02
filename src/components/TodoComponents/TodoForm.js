@@ -24,7 +24,7 @@ class TodoForm extends React.Component{
             <form onSubmit={this.handleSubmit}>
                 <input type="text" name="newtodo" placeholder="Add to list" value={this.state.newtodo} onChange={this.handleChange}/>
                 <button> ADD to list </button>
-                <button> CLEAR COMPLETED </button>
+                <button onClick={this.props.removeCompleted}> CLEAR COMPLETED </button>
             </form>
         )
     }
