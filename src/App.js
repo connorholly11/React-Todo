@@ -38,14 +38,10 @@ class App extends React.Component {
       <div>
         <h1>Todo List:</h1>
         <br></br>
-        {this.state.todos.map(
-          todos => <div>{todos.task}</div>
-          )}
-          {/* mapping over the dumbydata array and putting each task in a div */}
-          
+        
         <TodoList todos={this.state.todos}/>
         {/* passing the state props to TodoList */}
-        
+
         <TodoForm />
       </div>
     );

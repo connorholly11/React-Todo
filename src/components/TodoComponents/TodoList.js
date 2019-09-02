@@ -2,6 +2,7 @@
 // feel free to change this component.js into TodoList.js
 
 import React from 'react';
+import Todo from './Todo';
 
 class TodoList extends React.Component{
     constructor(props){
@@ -14,9 +15,11 @@ class TodoList extends React.Component{
         // super defines this.props for me and that is why I can call this.props here 
         return(
             <div>
-                {this.state.todos.map(
-                todos => <div>{todos.task}</div>
+                {this.props.todos.map
+                (todo => <Todo key={todo.id} todo={todo} />
                 )}
+{/* mapping over the dumbydata array and putting each task in a div */}
+
             </div>
         )
     }
